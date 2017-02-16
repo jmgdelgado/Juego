@@ -46,7 +46,6 @@ var app={
       game.load.audio('fin', 'assets/audio/fanfare.wav');
 
       game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
-      game.load.spritesheet('hole', 'assets/StarFoxBlackHole.png', 139, 139);
 
 
       game.load.image('bullet', 'assets/shmup-bullet.png');
@@ -79,7 +78,6 @@ var app={
 
       // explosion = game.add.spritesheet(-150,-150, 'kaboom');
       explosion = game.add.sprite(-1500,-1500, 'kaboom');
-      hole = game.add.sprite(-1500,-1500, 'hole');
 
       colisionsound = game.add.audio('colisionsound');
       objetivosound = game.add.audio('objetivosound');
@@ -252,7 +250,7 @@ var app={
     misil_2.destroy();
     misil_1.destroy();
     explosion.destroy();
-    hole.destroy();
+
 
     setTimeout(app.recomienza, 3000);
 
@@ -320,7 +318,6 @@ var app={
     var x = bola.body.x - DIAMETRO_BOLA;
     var y = bola.body.y - DIAMETRO_BOLA;
 
-    app.mostrarTragalo(x,y);
     // app.mostrarExplosion(x,y);
 
     app.decrementaVida();
@@ -336,15 +333,6 @@ var app={
     explosion.animations.play('walk', 50, false);
   },
 
-  mostrarTragalo: function(x,y){
-    var traga = hole.animations.add('black');
-    //  And this starts the animation playing by using its key ("walk")
-    //  30 is the frame rate (30fps)
-    //  true means it will loop when it finishes
-    hole.x = x;
-    hole.y = y;
-    hole.animations.play('black', 50, false);
-  },
 
   decrementaVida: function(){
 
